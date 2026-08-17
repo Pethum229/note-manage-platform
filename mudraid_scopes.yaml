@@ -1,0 +1,31 @@
+version: 1
+platform_id: 7448811f-538b-4b85-b1ac-576c1a948fbf
+scopes:
+  - name: notebooks:delete
+    group: notes
+    description: "Delete notes"
+  - name: notebooks:read
+    group: notes
+    description: "Read notes"
+  - name: notebooks:read_id
+    group: notes
+    description: "Get each notes"
+  - name: notebooks:write
+    group: notes
+    description: "Write notes"
+routes:
+  - method: GET
+    path: /
+    public: true
+  - method: GET
+    path: /api/notebooks
+    scope: notebooks:read
+  - method: POST
+    path: /api/notebooks
+    scope: notebooks:write
+  - method: DELETE
+    path: /api/notebooks/{id}
+    scope: notebooks:delete
+  - method: GET
+    path: /api/notebooks/{id}
+    scope: notebooks:read_id
